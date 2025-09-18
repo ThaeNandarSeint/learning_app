@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:learning_app/features/auth/views/forgot_password_screen.dart';
 import 'package:learning_app/features/auth/views/login_screen.dart';
+import 'package:learning_app/features/auth/views/register_screen.dart';
 import 'package:learning_app/features/entry/views/screens/home_screen.dart';
 import 'package:learning_app/features/entry/views/screens/onboarding_screen.dart';
 import 'package:learning_app/features/entry/views/screens/splash_screen.dart';
@@ -9,6 +11,8 @@ class AppRoutes {
   static const String splash = '/splash';
   static const String onboarding = '/onboarding';
   static const String login = '/login';
+  static const String register = '/register';
+  static const String forgotPassword = '/forgot-password';
   static const String home = '/home';
 
   static Route<dynamic> onGenerateRoute(RouteSettings settings) {
@@ -21,6 +25,12 @@ class AppRoutes {
 
       case login:
         return MaterialPageRoute(builder: (_) => const LoginScreen());
+
+      case register:
+        return MaterialPageRoute(builder: (_) => const RegisterScreen());
+
+      case forgotPassword:
+        return MaterialPageRoute(builder: (_) => const ForgotPasswordScreen());
 
       case home:
         return MaterialPageRoute(builder: (_) => const HomeScreen());
