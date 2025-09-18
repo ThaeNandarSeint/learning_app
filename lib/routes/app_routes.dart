@@ -5,6 +5,7 @@ import 'package:learning_app/features/auth/views/register_screen.dart';
 import 'package:learning_app/features/entry/views/screens/home_screen.dart';
 import 'package:learning_app/features/entry/views/screens/onboarding_screen.dart';
 import 'package:learning_app/features/entry/views/screens/splash_screen.dart';
+import 'package:learning_app/features/entry/views/screens/teacher_home_screen.dart';
 
 class AppRoutes {
   // auth routes
@@ -14,6 +15,9 @@ class AppRoutes {
   static const String register = '/register';
   static const String forgotPassword = '/forgot-password';
   static const String home = '/home';
+
+  // teacher routes
+  static const String teacherHome = '/teacher/home';
 
   static Route<dynamic> onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -34,6 +38,9 @@ class AppRoutes {
 
       case home:
         return MaterialPageRoute(builder: (_) => const HomeScreen());
+
+      case teacherHome:
+        return MaterialPageRoute(builder: (_) => const TeacherHomeScreen());
 
       default:
         return MaterialPageRoute(

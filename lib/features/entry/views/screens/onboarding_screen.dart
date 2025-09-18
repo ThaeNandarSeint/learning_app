@@ -4,6 +4,7 @@ import 'package:learning_app/core/theme/app_colors.dart';
 import 'package:learning_app/features/entry/models/onboarding_item_model.dart';
 import 'package:learning_app/features/entry/views/widgets/onboarding_item.dart';
 import 'package:learning_app/routes/app_routes.dart';
+import 'package:learning_app/services/storage_service.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class OnboardingScreen extends StatefulWidget {
@@ -14,32 +15,37 @@ class OnboardingScreen extends StatefulWidget {
 }
 
 class _OnboardingScreenState extends State<OnboardingScreen> {
+  final PageController _pageController = PageController();
+  int _currentPage = 0;
+
+  final List<OnboardingItemModel> _pages = [
+    OnboardingItemModel(
+      image: 'assets/images/onboarding/onboarding1.png',
+      title: 'Learn Anywhere',
+      description:
+          'Access your courses anytime, anywhere. Learn at your own pace with our flexible learning platform.',
+    ),
+    OnboardingItemModel(
+      image: 'assets/images/onboarding/onboarding2.png',
+      title: 'Interactive Learning',
+      description:
+          'Enage with interactive quizzes, live sessions and hands-on projects to enhance your learning experience.',
+    ),
+    OnboardingItemModel(
+      image: 'assets/images/onboarding/onboarding3.png',
+      title: 'Track Progress',
+      description:
+          'Monitor your progress, earn certificates and achieve your learning goals with detailed analytics.',
+    ),
+  ];
+
+  void _completeOnboarding() async {
+    await StorageService.setFirstTime(false);
+    Get.offAllNamed(AppRoutes.login);
+  }
+
   @override
   Widget build(BuildContext context) {
-    final PageController _pageController = PageController();
-    int _currentPage = 0;
-
-    final List<OnboardingItemModel> _pages = [
-      OnboardingItemModel(
-        image: 'assets/images/onboarding/onboarding1.png',
-        title: 'Learn Anywhere',
-        description:
-            'Access your courses anytime, anywhere. Learn at your own pace with our flexible learning platform.',
-      ),
-      OnboardingItemModel(
-        image: 'assets/images/onboarding/onboarding2.png',
-        title: 'Interactive Learning',
-        description:
-            'Enage with interactive quizzes, live sessions and hands-on projects to enhance your learning experience.',
-      ),
-      OnboardingItemModel(
-        image: 'assets/images/onboarding/onboarding3.png',
-        title: 'Track Progress',
-        description:
-            'Monitor your progress, earn certificates and achieve your learning goals with detailed analytics.',
-      ),
-    ];
-
     return Scaffold(
       backgroundColor: AppColors.primary,
       body: Stack(
@@ -60,7 +66,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
             top: 50,
             right: 20,
             child: TextButton(
-              onPressed: () => Get.offAllNamed(AppRoutes.login),
+              onPressed: _completeOnboarding,
               child: const Text(
                 "Skip",
                 style: TextStyle(
@@ -91,7 +97,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 ElevatedButton(
                   onPressed: () {
                     if (_currentPage == _pages.length - 1) {
-                      Get.offAllNamed(AppRoutes.login);
+                      _completeOnboarding();
                     } else {
                       _pageController.nextPage(
                         duration: const Duration(milliseconds: 300),

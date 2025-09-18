@@ -5,6 +5,7 @@ import 'package:learning_app/features/auth/views/register_screen.dart';
 import 'package:learning_app/features/entry/views/screens/home_screen.dart';
 import 'package:learning_app/features/entry/views/screens/onboarding_screen.dart';
 import 'package:learning_app/features/entry/views/screens/splash_screen.dart';
+import 'package:learning_app/features/entry/views/screens/teacher_home_screen.dart';
 import 'package:learning_app/routes/app_routes.dart';
 
 class AppPages {
@@ -18,5 +19,6 @@ class AppPages {
       page: () => const ForgotPasswordScreen(),
     ),
     GetPage(name: AppRoutes.home, page: () => const HomeScreen()),
+    GetPage(name: AppRoutes.teacherHome, page: () => const TeacherHomeScreen()),
   ];
 }
