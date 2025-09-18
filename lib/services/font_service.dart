@@ -16,7 +16,7 @@ class FontService {
   };
   static const Map<String, double> fontSizeScales = {
     'Small': 0.8,
-    'Medium': 1.0,
+    'Normal': 1.0,
     'Large': 1.2,
     'Extra Large': 1.4,
   };
@@ -72,18 +72,18 @@ class FontService {
       ),
 
       titleLarge: getFontTheme().titleLarge?.copyWith(
-        fontSize: (baseTheme.displayLarge?.fontSize ?? 18) * fontScale,
+        fontSize: (baseTheme.titleLarge?.fontSize ?? 18) * fontScale,
       ),
 
       bodyLarge: getFontTheme().bodyLarge?.copyWith(
-        fontSize: (baseTheme.displayLarge?.fontSize ?? 16) * fontScale,
+        fontSize: (baseTheme.bodyLarge?.fontSize ?? 16) * fontScale,
       ),
       bodyMedium: getFontTheme().bodyMedium?.copyWith(
-        fontSize: (baseTheme.displayLarge?.fontSize ?? 14) * fontScale,
+        fontSize: (baseTheme.bodyMedium?.fontSize ?? 14) * fontScale,
       ),
 
       labelLarge: getFontTheme().labelLarge?.copyWith(
-        fontSize: (baseTheme.displayLarge?.fontSize ?? 14) * fontScale,
+        fontSize: (baseTheme.labelLarge?.fontSize ?? 14) * fontScale,
       ),
     );
   }
