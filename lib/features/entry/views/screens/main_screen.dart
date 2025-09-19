@@ -26,9 +26,9 @@ class MainScreen extends StatelessWidget {
               index: state.currentIndex,
               children: [
                 HomeScreen(),
-                CourseListScreen(),
-                QuizListScreen(),
-                ProfileScreen(),
+                const CourseListScreen(),
+                const QuizListScreen(),
+                const ProfileScreen(),
               ],
             ),
             bottomNavigationBar: NavigationBar(

@@ -1,6 +1,6 @@
 import 'package:learning_app/features/lesson/models/lesson_model.dart';
 
-class Course {
+class CourseModel {
   final String id;
   final String title;
   final String description;
@@ -19,7 +19,7 @@ class Course {
   final DateTime updatedAt;
   final bool isPremium;
 
-  Course({
+  CourseModel({
     required this.id,
     required this.title,
     required this.description,
@@ -39,8 +39,8 @@ class Course {
     this.isPremium = false,
   });
 
-  factory Course.fromJson(Map<String, dynamic> json) {
-    return Course(
+  factory CourseModel.fromJson(Map<String, dynamic> json) {
+    return CourseModel(
       id: json['id'],
       title: json['title'],
       description: json['description'],

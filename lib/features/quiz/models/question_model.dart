@@ -19,7 +19,7 @@ class QuestionModel {
       text: map['text'] ?? '',
       correctOptionId: map['correctOptionId'] ?? '',
       points: map['points'] ?? '',
-      options: (map['correctOptionId'] as List<dynamic>)
+      options: (map['options'] as List<dynamic>)
           .map((o) => OptionModel.fromMap(o))
           .toList(),
     );

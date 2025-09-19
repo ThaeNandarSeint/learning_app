@@ -63,7 +63,7 @@ class AppRoutes {
         );
 
       case home:
-        return MaterialPageRoute(builder: (_) => const HomeScreen());
+        return MaterialPageRoute(builder: (_) => HomeScreen());
 
       case courseList:
         return MaterialPageRoute(builder: (_) => const CourseListScreen());
