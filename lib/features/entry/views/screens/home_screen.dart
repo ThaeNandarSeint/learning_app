@@ -3,6 +3,8 @@ import 'package:learning_app/features/category/models/category_model.dart';
 import 'package:learning_app/features/category/views/widgets/category_section.dart';
 import 'package:learning_app/features/entry/views/widgets/custom_search_bar.dart';
 import 'package:learning_app/features/entry/views/widgets/home_app_bar.dart';
+import 'package:learning_app/features/entry/views/widgets/in_progress_section.dart';
+import 'package:learning_app/features/entry/views/widgets/recommended_section.dart';
 import 'package:learning_app/services/dummy_data_service.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -72,6 +74,9 @@ class HomeScreen extends StatelessWidget {
               const CustomSearchBar(),
               const SizedBox(height: 32),
               CategorySection(categories: categories),
+              const SizedBox(height: 32),
+              const InProgressSection(),
+              const RecommendedSection(),
             ]),
           ),
         ),
