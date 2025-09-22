@@ -8,7 +8,7 @@ import 'package:learning_app/features/entry/views/screens/main_screen.dart';
 import 'package:learning_app/features/entry/views/screens/onboarding_screen.dart';
 import 'package:learning_app/features/entry/views/screens/splash_screen.dart';
 import 'package:learning_app/features/entry/views/screens/teacher_home_screen.dart';
-import 'package:learning_app/features/quiz/views/quiz_list_screen.dart';
+import 'package:learning_app/features/quiz/views/screens/quiz_list_screen.dart';
 import 'package:learning_app/features/user/views/profile_screen.dart';
 
 class AppRoutes {

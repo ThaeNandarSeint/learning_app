@@ -32,7 +32,7 @@ class HomeAppBar extends StatelessWidget {
               ),
             ),
             Text(
-              'John Doe,',
+              'Thae,',
               style: theme.textTheme.titleLarge?.copyWith(
                 color: AppColors.accent,
                 fontWeight: FontWeight.bold,
