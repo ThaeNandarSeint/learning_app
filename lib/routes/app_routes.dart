@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:learning_app/features/auth/views/forgot_password_screen.dart';
 import 'package:learning_app/features/auth/views/login_screen.dart';
 import 'package:learning_app/features/auth/views/register_screen.dart';
-import 'package:learning_app/features/course/views/course_list_screen.dart';
+import 'package:learning_app/features/course/views/screens/course_list_screen.dart';
 import 'package:learning_app/features/entry/views/screens/home_screen.dart';
 import 'package:learning_app/features/entry/views/screens/main_screen.dart';
 import 'package:learning_app/features/entry/views/screens/onboarding_screen.dart';
@@ -66,7 +66,15 @@ class AppRoutes {
         return MaterialPageRoute(builder: (_) => HomeScreen());
 
       case courseList:
-        return MaterialPageRoute(builder: (_) => const CourseListScreen());
+        return MaterialPageRoute(
+          builder: (_) {
+            final args = settings.arguments as Map<String, dynamic>?;
+            return CourseListScreen(
+              categoryId: args?['category'] as String,
+              categoryName: args?['categoryName'] as String,
+            );
+          },
+        );
 
       case quizList:
         return MaterialPageRoute(builder: (_) => const QuizListScreen());

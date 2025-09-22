@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:learning_app/core/theme/app_colors.dart';
-import 'package:learning_app/features/course/views/course_list_screen.dart';
+import 'package:learning_app/features/course/views/screens/course_list_screen.dart';
 import 'package:learning_app/features/entry/viewmodels/navigation_bloc.dart';
 import 'package:learning_app/features/entry/viewmodels/navigation_event.dart';
 import 'package:learning_app/features/entry/viewmodels/navigation_state.dart';
