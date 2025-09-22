@@ -9,7 +9,7 @@ import 'package:learning_app/features/entry/views/screens/onboarding_screen.dart
 import 'package:learning_app/features/entry/views/screens/splash_screen.dart';
 import 'package:learning_app/features/entry/views/screens/teacher_home_screen.dart';
 import 'package:learning_app/features/quiz/views/screens/quiz_list_screen.dart';
-import 'package:learning_app/features/user/views/profile_screen.dart';
+import 'package:learning_app/features/user/views/screens/profile_screen.dart';
 import 'package:learning_app/routes/app_routes.dart';
 
 class AppPages {

@@ -7,7 +7,7 @@ import 'package:learning_app/features/entry/viewmodels/navigation_event.dart';
 import 'package:learning_app/features/entry/viewmodels/navigation_state.dart';
 import 'package:learning_app/features/entry/views/screens/home_screen.dart';
 import 'package:learning_app/features/quiz/views/screens/quiz_list_screen.dart';
-import 'package:learning_app/features/user/views/profile_screen.dart';
+import 'package:learning_app/features/user/views/screens/profile_screen.dart';
 
 class MainScreen extends StatelessWidget {
   final int? initialIndex;
