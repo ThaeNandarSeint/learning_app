@@ -13,6 +13,7 @@ import 'package:learning_app/features/lesson/views/screens/lesson_detail_screen.
 import 'package:learning_app/features/payment/views/screens/payment_screen.dart';
 import 'package:learning_app/features/quiz/views/screens/quiz_attempt_screen.dart';
 import 'package:learning_app/features/quiz/views/screens/quiz_list_screen.dart';
+import 'package:learning_app/features/quiz/views/screens/quiz_result_screen.dart';
 import 'package:learning_app/features/user/views/screens/profile_screen.dart';
 
 class AppRoutes {
@@ -36,6 +37,7 @@ class AppRoutes {
 
   // quiz routes
   static const String quizList = '/quizzes';
+  static const String quizResult = '/quizzes/result';
   static const String quizAttempt = '/quizzes/:id';
 
   // profile routes

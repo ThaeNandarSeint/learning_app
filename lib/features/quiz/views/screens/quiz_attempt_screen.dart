@@ -1,9 +1,11 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:learning_app/core/theme/app_colors.dart';
 import 'package:learning_app/features/quiz/models/quiz_attempt_model.dart';
 import 'package:learning_app/features/quiz/models/quiz_model.dart';
+import 'package:learning_app/features/quiz/views/screens/quiz_result_screen.dart';
 import 'package:learning_app/features/quiz/views/widgets/quiz_attempt_app_bar.dart';
 import 'package:learning_app/features/quiz/views/widgets/quiz_navigation_bar.dart';
 import 'package:learning_app/features/quiz/views/widgets/quiz_question_page.dart';
@@ -75,6 +77,8 @@ class _QuizAttemptScreenState extends State<QuizAttemptScreen> {
     );
 
     DummyDataService.saveQuizAttempt(currentAttempt!);
+
+    Get.off(() => QuizResultScreen(attempt: currentAttempt!, quiz: quiz));
   }
 
   int _calculateScore() {
