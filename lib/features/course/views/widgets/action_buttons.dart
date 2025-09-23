@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:learning_app/features/course/models/course_model.dart';
+import 'package:learning_app/routes/app_routes.dart';
 import 'package:learning_app/services/dummy_data_service.dart';
 
 class ActionButtons extends StatelessWidget {
@@ -16,7 +18,23 @@ class ActionButtons extends StatelessWidget {
             onPressed: () {
               if (course.isPremium &&
                   !DummyDataService.isCourseUnlocked(course.id)) {
-              } else {}
+                Get.toNamed(
+                  AppRoutes.payment,
+                  arguments: {
+                    'courseId': course.id,
+                    'courseName': course.title,
+                    'price': course.price,
+                  },
+                );
+              } else {
+                Get.toNamed(
+                  AppRoutes.lessonDetail.replaceAll(
+                    ':id',
+                    course.lessons.first.id,
+                  ),
+                  parameters: {'courseId': course.id},
+                );
+              }
             },
             label: const Text('Start Learning'),
             icon: const Icon(Icons.play_circle),

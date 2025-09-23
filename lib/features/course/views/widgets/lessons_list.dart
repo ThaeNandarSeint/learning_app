@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:learning_app/core/theme/app_colors.dart';
 import 'package:learning_app/features/course/views/widgets/lesson_tile.dart';
+import 'package:learning_app/routes/app_routes.dart';
 import 'package:learning_app/services/dummy_data_service.dart';
 
 class LessonsList extends StatelessWidget {
@@ -57,7 +58,16 @@ class LessonsList extends StatelessWidget {
                 colorText: Colors.white,
                 duration: const Duration(seconds: 3),
               );
-            } else {}
+            } else {
+              final result = await Get.toNamed(
+                AppRoutes.lessonDetail.replaceAll(':id', lesson.id),
+                parameters: {'courseId': courseId},
+              );
+
+              if (result == true) {
+                onLessonComplete?.call();
+              }
+            }
           },
         );
       },
