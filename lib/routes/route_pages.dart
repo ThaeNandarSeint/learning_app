@@ -2,6 +2,7 @@ import 'package:get/get.dart';
 import 'package:learning_app/features/auth/views/forgot_password_screen.dart';
 import 'package:learning_app/features/auth/views/login_screen.dart';
 import 'package:learning_app/features/auth/views/register_screen.dart';
+import 'package:learning_app/features/course/views/screens/course_detail_screen.dart';
 import 'package:learning_app/features/course/views/screens/course_list_screen.dart';
 import 'package:learning_app/features/entry/views/screens/home_screen.dart';
 import 'package:learning_app/features/entry/views/screens/main_screen.dart';
@@ -37,6 +38,10 @@ class AppPages {
         categoryId: Get.arguments?['category'] as String?,
         categoryName: Get.arguments?['categoryName'] as String?,
       ),
+    ),
+    GetPage(
+      name: AppRoutes.courseDetail,
+      page: () => CourseDetailScreen(courseId: Get.parameters['id'] ?? ''),
     ),
     GetPage(name: AppRoutes.quizList, page: () => const QuizListScreen()),
     GetPage(name: AppRoutes.profile, page: () => const ProfileScreen()),

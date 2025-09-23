@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:learning_app/features/auth/views/forgot_password_screen.dart';
 import 'package:learning_app/features/auth/views/login_screen.dart';
 import 'package:learning_app/features/auth/views/register_screen.dart';
+import 'package:learning_app/features/course/views/screens/course_detail_screen.dart';
 import 'package:learning_app/features/course/views/screens/course_list_screen.dart';
 import 'package:learning_app/features/entry/views/screens/home_screen.dart';
 import 'package:learning_app/features/entry/views/screens/main_screen.dart';
@@ -25,6 +26,7 @@ class AppRoutes {
 
   // course routes
   static const String courseList = '/courses';
+  static const String courseDetail = '/courses/:id';
 
   // quiz routes
   static const String quizList = '/quizzes';
@@ -74,6 +76,18 @@ class AppRoutes {
               categoryName: args?['categoryName'] as String,
             );
           },
+        );
+
+      case courseDetail:
+        String courseId;
+        if (settings.arguments != null) {
+          courseId = settings.arguments as String;
+        } else {
+          final uri = Uri.parse(settings.name ?? '');
+          courseId = uri.pathSegments.last;
+        }
+        return MaterialPageRoute(
+          builder: (_) => CourseDetailScreen(courseId: courseId),
         );
 
       case quizList:
