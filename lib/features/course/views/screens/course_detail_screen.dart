@@ -6,6 +6,7 @@ import 'package:learning_app/features/course/views/widgets/course_detail_app_bar
 import 'package:learning_app/features/course/views/widgets/course_info_card.dart';
 import 'package:learning_app/features/course/views/widgets/lessons_list.dart';
 import 'package:learning_app/features/course/views/widgets/reviews_section.dart';
+import 'package:learning_app/routes/app_routes.dart';
 import 'package:learning_app/services/dummy_data_service.dart';
 
 class CourseDetailScreen extends StatefulWidget {
@@ -110,7 +111,16 @@ class _CourseDetailScreenState extends State<CourseDetailScreen> {
                 ],
               ),
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Get.toNamed(
+                    AppRoutes.payment,
+                    arguments: {
+                      'courseId': widget.courseId,
+                      'courseName': course.title,
+                      'price': course.price,
+                    },
+                  );
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: AppColors.primary,
                   padding: const EdgeInsets.all(16),
