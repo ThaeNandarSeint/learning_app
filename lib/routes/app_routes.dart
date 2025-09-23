@@ -11,6 +11,7 @@ import 'package:learning_app/features/entry/views/screens/splash_screen.dart';
 import 'package:learning_app/features/entry/views/screens/teacher_home_screen.dart';
 import 'package:learning_app/features/lesson/views/screens/lesson_detail_screen.dart';
 import 'package:learning_app/features/payment/views/screens/payment_screen.dart';
+import 'package:learning_app/features/quiz/views/screens/quiz_attempt_screen.dart';
 import 'package:learning_app/features/quiz/views/screens/quiz_list_screen.dart';
 import 'package:learning_app/features/user/views/screens/profile_screen.dart';
 
@@ -35,6 +36,7 @@ class AppRoutes {
 
   // quiz routes
   static const String quizList = '/quizzes';
+  static const String quizAttempt = '/quizzes/:id';
 
   // profile routes
   static const String profile = '/profile';
@@ -106,6 +108,12 @@ class AppRoutes {
 
       case quizList:
         return MaterialPageRoute(builder: (_) => const QuizListScreen());
+
+      case quizAttempt:
+        final quizId = settings.arguments as String?;
+        return MaterialPageRoute(
+          builder: (_) => QuizAttemptScreen(quizId: quizId ?? ''),
+        );
 
       case profile:
         return MaterialPageRoute(builder: (_) => const ProfileScreen());

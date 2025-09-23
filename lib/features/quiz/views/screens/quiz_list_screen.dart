@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:learning_app/core/theme/app_colors.dart';
 import 'package:learning_app/features/quiz/views/widgets/quiz_card.dart';
 import 'package:learning_app/services/dummy_data_service.dart';
@@ -49,7 +50,10 @@ class QuizListScreen extends StatelessWidget {
                   description: quiz.description,
                   questionCount: quiz.questions.length,
                   timeLimit: quiz.timeLimit,
-                  onTap: () {},
+                  onTap: () => Get.toNamed(
+                    '/quizzes/${quiz.id}',
+                    parameters: {'id': quiz.id},
+                  ),
                 );
               }, childCount: DummyDataService.quizzes.length),
             ),
