@@ -34,7 +34,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
   void _handleRegister() {
     if (_formKey.currentState!.validate() && _selectedRole != null) {
       if (_selectedRole == Role.teacher) {
-        // Get.offAllNamed(AppRoutes.teacherHome);
+        Get.offAllNamed(AppRoutes.teacherHome);
       } else {
         Get.offAllNamed(AppRoutes.main);
       }

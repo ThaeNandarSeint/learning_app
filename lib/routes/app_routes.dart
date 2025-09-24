@@ -8,12 +8,12 @@ import 'package:learning_app/features/entry/views/screens/home_screen.dart';
 import 'package:learning_app/features/entry/views/screens/main_screen.dart';
 import 'package:learning_app/features/entry/views/screens/onboarding_screen.dart';
 import 'package:learning_app/features/entry/views/screens/splash_screen.dart';
-import 'package:learning_app/features/entry/views/screens/teacher_home_screen.dart';
 import 'package:learning_app/features/lesson/views/screens/lesson_detail_screen.dart';
 import 'package:learning_app/features/notification/views/screens/notification_screen.dart';
 import 'package:learning_app/features/payment/views/screens/payment_screen.dart';
 import 'package:learning_app/features/quiz/views/screens/quiz_attempt_screen.dart';
 import 'package:learning_app/features/quiz/views/screens/quiz_list_screen.dart';
+import 'package:learning_app/features/teacher_home/views/screens/teacher_home_screen.dart';
 import 'package:learning_app/features/user/views/screens/profile_screen.dart';
 
 class AppRoutes {
