@@ -10,10 +10,10 @@ import 'package:learning_app/features/entry/views/screens/onboarding_screen.dart
 import 'package:learning_app/features/entry/views/screens/splash_screen.dart';
 import 'package:learning_app/features/entry/views/screens/teacher_home_screen.dart';
 import 'package:learning_app/features/lesson/views/screens/lesson_detail_screen.dart';
+import 'package:learning_app/features/notification/views/screens/notification_screen.dart';
 import 'package:learning_app/features/payment/views/screens/payment_screen.dart';
 import 'package:learning_app/features/quiz/views/screens/quiz_attempt_screen.dart';
 import 'package:learning_app/features/quiz/views/screens/quiz_list_screen.dart';
-import 'package:learning_app/features/quiz/views/screens/quiz_result_screen.dart';
 import 'package:learning_app/features/user/views/screens/profile_screen.dart';
 
 class AppRoutes {
@@ -45,6 +45,9 @@ class AppRoutes {
 
   // payment routes
   static const String payment = '/payment';
+
+  // notification routes
+  static const String notifications = '/notifications';
 
   // teacher routes
   static const String teacherHome = '/teacher/home';
@@ -129,6 +132,9 @@ class AppRoutes {
             price: args['price'] ?? 0.0,
           ),
         );
+
+      case notifications:
+        return MaterialPageRoute(builder: (_) => const NotificationScreen());
 
       case teacherHome:
         return MaterialPageRoute(builder: (_) => const TeacherHomeScreen());
