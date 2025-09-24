@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:learning_app/features/auth/views/forgot_password_screen.dart';
 import 'package:learning_app/features/auth/views/login_screen.dart';
 import 'package:learning_app/features/auth/views/register_screen.dart';
+import 'package:learning_app/features/chat/views/screens/chat_list_screen.dart';
 import 'package:learning_app/features/course/views/screens/course_detail_screen.dart';
 import 'package:learning_app/features/course/views/screens/course_list_screen.dart';
 import 'package:learning_app/features/course/views/screens/my_course_list_screen.dart';
@@ -53,6 +54,7 @@ class AppRoutes {
   // teacher routes
   static const String teacherHome = '/teacher/home';
   static const String myCourses = '/teacher/courses';
+  static const String teacherChats = '/teacher/chats';
 
   static Route<dynamic> onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -140,6 +142,9 @@ class AppRoutes {
 
       case teacherHome:
         return MaterialPageRoute(builder: (_) => const TeacherHomeScreen());
+
+      case teacherChats:
+        return MaterialPageRoute(builder: (_) => const ChatListScreen());
 
       case myCourses:
         return MaterialPageRoute(builder: (_) => const MyCourseListScreen());

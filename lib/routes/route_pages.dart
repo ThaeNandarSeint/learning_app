@@ -2,6 +2,7 @@ import 'package:get/get.dart';
 import 'package:learning_app/features/auth/views/forgot_password_screen.dart';
 import 'package:learning_app/features/auth/views/login_screen.dart';
 import 'package:learning_app/features/auth/views/register_screen.dart';
+import 'package:learning_app/features/chat/views/screens/chat_list_screen.dart';
 import 'package:learning_app/features/course/views/screens/course_detail_screen.dart';
 import 'package:learning_app/features/course/views/screens/course_list_screen.dart';
 import 'package:learning_app/features/course/views/screens/my_course_list_screen.dart';
@@ -82,5 +83,6 @@ class AppPages {
     ),
     GetPage(name: AppRoutes.teacherHome, page: () => const TeacherHomeScreen()),
     GetPage(name: AppRoutes.myCourses, page: () => const MyCourseListScreen()),
+    GetPage(name: AppRoutes.teacherChats, page: () => const ChatListScreen()),
   ];
 }
