@@ -5,6 +5,7 @@ import 'package:learning_app/features/auth/views/register_screen.dart';
 import 'package:learning_app/features/chat/views/screens/chat_list_screen.dart';
 import 'package:learning_app/features/course/views/screens/course_detail_screen.dart';
 import 'package:learning_app/features/course/views/screens/course_list_screen.dart';
+import 'package:learning_app/features/course/views/screens/create_course_screen.dart';
 import 'package:learning_app/features/course/views/screens/my_course_list_screen.dart';
 import 'package:learning_app/features/entry/views/screens/home_screen.dart';
 import 'package:learning_app/features/entry/views/screens/main_screen.dart';
@@ -84,5 +85,9 @@ class AppPages {
     GetPage(name: AppRoutes.teacherHome, page: () => const TeacherHomeScreen()),
     GetPage(name: AppRoutes.myCourses, page: () => const MyCourseListScreen()),
     GetPage(name: AppRoutes.teacherChats, page: () => const ChatListScreen()),
+    GetPage(
+      name: AppRoutes.createCourse,
+      page: () => const CreateCourseScreen(),
+    ),
   ];
 }

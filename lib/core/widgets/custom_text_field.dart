@@ -5,10 +5,11 @@ class CustomTextField extends StatefulWidget {
     super.key,
     required this.label,
     this.hint,
+    this.initialValue,
     this.prefixIcon,
     this.suffixIcon,
     this.obscureText = false,
-    required this.controller,
+    this.controller,
     this.validator,
     this.keyboardType,
     this.onChanged,
@@ -19,10 +20,11 @@ class CustomTextField extends StatefulWidget {
 
   final String label;
   final String? hint;
+  final String? initialValue;
   final IconData? prefixIcon;
   final IconData? suffixIcon;
   final bool obscureText;
-  final TextEditingController controller;
+  final TextEditingController? controller;
   final String? Function(String?)? validator;
   final TextInputType? keyboardType;
   final void Function(String)? onChanged;
@@ -47,6 +49,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
   Widget build(BuildContext context) {
     return TextFormField(
       controller: widget.controller,
+      initialValue: widget.initialValue,
       obscureText: _obscureText,
       validator: widget.validator,
       keyboardType: widget.keyboardType,
