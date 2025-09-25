@@ -75,7 +75,7 @@ class ChatListScreen extends StatelessWidget {
                           .studentProgress['inst_1']
                           ?.firstWhere(
                             (progress) => progress.studentId == chat.senderId,
-                            orElse: () => StudentProgress(
+                            orElse: () => StudentProgressModel(
                               studentId: chat.senderId,
                               studentName: 'Unknown Student',
                               courseId: chat.courseId,

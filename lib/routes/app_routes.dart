@@ -16,6 +16,7 @@ import 'package:learning_app/features/notification/views/screens/notification_sc
 import 'package:learning_app/features/payment/views/screens/payment_screen.dart';
 import 'package:learning_app/features/quiz/views/screens/quiz_attempt_screen.dart';
 import 'package:learning_app/features/quiz/views/screens/quiz_list_screen.dart';
+import 'package:learning_app/features/student_progress/views/screens/student_progress_screen.dart';
 import 'package:learning_app/features/teacher_analytics/views/screens/teacher_analytics_screen.dart';
 import 'package:learning_app/features/teacher_home/views/screens/teacher_home_screen.dart';
 import 'package:learning_app/features/user/views/screens/profile_screen.dart';
@@ -59,6 +60,7 @@ class AppRoutes {
   static const String teacherChats = '/teacher/chats';
   static const String createCourse = '/teacher/courses/create';
   static const String teacherAnalytics = '/teacher/analytics';
+  static const String studentProgress = '/teacher/student_progress';
 
   static Route<dynamic> onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -160,6 +162,9 @@ class AppRoutes {
         return MaterialPageRoute(
           builder: (_) => const TeacherAnalyticsScreen(),
         );
+
+      case studentProgress:
+        return MaterialPageRoute(builder: (_) => const StudentProgress());
 
       default:
         return MaterialPageRoute(

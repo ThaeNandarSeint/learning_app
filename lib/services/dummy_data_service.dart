@@ -539,9 +539,9 @@ class DummyDataService {
     ),
   };
 
-  static final Map<String, List<StudentProgress>> studentProgress = {
+  static final Map<String, List<StudentProgressModel>> studentProgress = {
     "int_1": [
-      StudentProgress(
+      StudentProgressModel(
         studentId: 'student_1',
         studentName: 'John Smith',
         courseId: '1',
@@ -553,7 +553,7 @@ class DummyDataService {
         totalLessons: 16,
         averageTimePerLesson: 45,
       ),
-      StudentProgress(
+      StudentProgressModel(
         studentId: 'student_2',
         studentName: 'Emma Wilson',
         courseId: '1',
@@ -591,7 +591,7 @@ class DummyDataService {
     );
   }
 
-  static List<StudentProgress> getStudentProgress(String instructorId) {
+  static List<StudentProgressModel> getStudentProgress(String instructorId) {
     final instructorCourses = getInstructorCourses(instructorId);
     final courseIds = instructorCourses.map((c) => c.id).toSet();
 
@@ -749,7 +749,7 @@ class StudentEngagement {
   );
 }
 
-class StudentProgress {
+class StudentProgressModel {
   final String studentId;
   final String studentName;
   final String courseId;
@@ -766,7 +766,7 @@ class StudentProgress {
     return quizScores.reduce((a, b) => a + b) / quizScores.length / 100;
   }
 
-  StudentProgress({
+  StudentProgressModel({
     required this.studentId,
     required this.studentName,
     required this.courseId,

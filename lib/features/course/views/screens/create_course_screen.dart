@@ -61,7 +61,7 @@ class _CreateCourseScreenState extends State<CreateCourseScreen> {
           ),
           child: DropdownButtonHideUnderline(
             child: DropdownButton(
-              items: ["Begineer", "Intermediate", "Advanced"]
+              items: ["Beginner", "Intermediate", "Advanced"]
                   .map(
                     (level) =>
                         DropdownMenuItem(value: level, child: Text(level)),
