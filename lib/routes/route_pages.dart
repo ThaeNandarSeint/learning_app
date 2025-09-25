@@ -19,6 +19,7 @@ import 'package:learning_app/features/quiz/models/quiz_model.dart';
 import 'package:learning_app/features/quiz/views/screens/quiz_attempt_screen.dart';
 import 'package:learning_app/features/quiz/views/screens/quiz_list_screen.dart';
 import 'package:learning_app/features/quiz/views/screens/quiz_result_screen.dart';
+import 'package:learning_app/features/teacher_analytics/views/screens/teacher_analytics_screen.dart';
 import 'package:learning_app/features/teacher_home/views/screens/teacher_home_screen.dart';
 import 'package:learning_app/features/user/views/screens/profile_screen.dart';
 import 'package:learning_app/routes/app_routes.dart';
@@ -88,6 +89,10 @@ class AppPages {
     GetPage(
       name: AppRoutes.createCourse,
       page: () => const CreateCourseScreen(),
+    ),
+    GetPage(
+      name: AppRoutes.teacherAnalytics,
+      page: () => const TeacherAnalyticsScreen(),
     ),
   ];
 }
