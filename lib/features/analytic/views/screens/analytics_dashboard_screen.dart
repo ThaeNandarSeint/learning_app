@@ -27,35 +27,41 @@ class AnalyticsDashboardScreen extends StatelessWidget {
         backgroundColor: Colors.transparent,
         elevation: 0,
       ),
-      body: FutureBuilder<AnalyticDataModel>(
-        future: _analyticsService.getUserAnalytics('current_user_id'),
-        builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.waiting) {
-            return const Center(child: CircularProgressIndicator());
-          }
+      body: SafeArea(
+        child: FutureBuilder<AnalyticDataModel>(
+          future: _analyticsService.getUserAnalytics('current_user_id'),
+          builder: (context, snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return const Center(child: CircularProgressIndicator());
+            }
 
-          final analytics = snapshot.data!;
-          return SingleChildScrollView(
-            physics: const BouncingScrollPhysics(),
-            child: Padding(
-              padding: const EdgeInsets.all(16),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  LearningStreakCard(learningStreak: analytics.learningStreak),
-                  const SizedBox(height: 20),
-                  WeeklyProgressCard(weeklyProgress: analytics.weeklyProgress),
-                  const SizedBox(height: 20),
-                  SkillProgressCard(skillProgress: analytics.skillProgress),
-                  const SizedBox(height: 20),
-                  RecommendationCard(
-                    recommendations: analytics.recommendations,
-                  ),
-                ],
+            final analytics = snapshot.data!;
+            return SingleChildScrollView(
+              physics: const BouncingScrollPhysics(),
+              child: Padding(
+                padding: const EdgeInsets.all(16),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    LearningStreakCard(
+                      learningStreak: analytics.learningStreak,
+                    ),
+                    const SizedBox(height: 20),
+                    WeeklyProgressCard(
+                      weeklyProgress: analytics.weeklyProgress,
+                    ),
+                    const SizedBox(height: 20),
+                    SkillProgressCard(skillProgress: analytics.skillProgress),
+                    const SizedBox(height: 20),
+                    RecommendationCard(
+                      recommendations: analytics.recommendations,
+                    ),
+                  ],
+                ),
               ),
-            ),
-          );
-        },
+            );
+          },
+        ),
       ),
     );
   }

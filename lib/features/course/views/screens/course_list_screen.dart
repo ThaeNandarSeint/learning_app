@@ -37,69 +37,71 @@ class CourseListScreen extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: AppColors.lightBackground,
-      body: CustomScrollView(
-        physics: const BouncingScrollPhysics(),
-        slivers: [
-          SliverAppBar(
-            expandedHeight: 200,
-            pinned: true,
-            backgroundColor: AppColors.primary,
-            automaticallyImplyLeading: categoryId != null || showBackButton,
-            leading: (categoryId != null || showBackButton)
-                ? IconButton(
-                    onPressed: () => Get.back(),
-                    icon: const Icon(Icons.arrow_back),
-                  )
-                : null,
-            actions: [
-              IconButton(
-                onPressed: () => _showFilterDialog(context),
-                icon: const Icon(Icons.filter_list, color: AppColors.accent),
-              ),
-            ],
-            flexibleSpace: FlexibleSpaceBar(
-              titlePadding: const EdgeInsets.all(6),
-              title: Text(
-                categoryName ?? 'All Courses',
-                style: theme.textTheme.headlineMedium?.copyWith(
-                  color: AppColors.accent,
-                  fontWeight: FontWeight.bold,
+      body: SafeArea(
+        child: CustomScrollView(
+          physics: const BouncingScrollPhysics(),
+          slivers: [
+            SliverAppBar(
+              expandedHeight: 200,
+              pinned: true,
+              backgroundColor: AppColors.primary,
+              automaticallyImplyLeading: categoryId != null || showBackButton,
+              leading: (categoryId != null || showBackButton)
+                  ? IconButton(
+                      onPressed: () => Get.back(),
+                      icon: const Icon(Icons.arrow_back),
+                    )
+                  : null,
+              actions: [
+                IconButton(
+                  onPressed: () => _showFilterDialog(context),
+                  icon: const Icon(Icons.filter_list, color: AppColors.accent),
                 ),
-              ),
-              background: Container(
-                decoration: const BoxDecoration(
-                  gradient: LinearGradient(
-                    colors: [AppColors.primary, AppColors.primaryLight],
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight,
+              ],
+              flexibleSpace: FlexibleSpaceBar(
+                titlePadding: const EdgeInsets.all(6),
+                title: Text(
+                  categoryName ?? 'All Courses',
+                  style: theme.textTheme.headlineMedium?.copyWith(
+                    color: AppColors.accent,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                background: Container(
+                  decoration: const BoxDecoration(
+                    gradient: LinearGradient(
+                      colors: [AppColors.primary, AppColors.primaryLight],
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
+                    ),
                   ),
                 ),
               ),
             ),
-          ),
-          if (courses.isEmpty)
-            SliverFillRemaining(
-              child: EmptyFallback(onActionPressed: () => Get.back()),
-            )
-          else
-            SliverPadding(
-              padding: const EdgeInsets.all(16),
-              sliver: SliverList(
-                delegate: SliverChildBuilderDelegate((context, index) {
-                  final course = courses[index];
-                  return CourseCard(
-                    courseId: course.id,
-                    title: course.title,
-                    description: course.description,
-                    imageUrl: course.imageUrl,
-                    rating: course.rating,
-                    duration: '${course.lessons.length * 30} mins',
-                    isPremium: course.isPremium,
-                  );
-                }, childCount: courses.length),
+            if (courses.isEmpty)
+              SliverFillRemaining(
+                child: EmptyFallback(onActionPressed: () => Get.back()),
+              )
+            else
+              SliverPadding(
+                padding: const EdgeInsets.all(16),
+                sliver: SliverList(
+                  delegate: SliverChildBuilderDelegate((context, index) {
+                    final course = courses[index];
+                    return CourseCard(
+                      courseId: course.id,
+                      title: course.title,
+                      description: course.description,
+                      imageUrl: course.imageUrl,
+                      rating: course.rating,
+                      duration: '${course.lessons.length * 30} mins',
+                      isPremium: course.isPremium,
+                    );
+                  }, childCount: courses.length),
+                ),
               ),
-            ),
-        ],
+          ],
+        ),
       ),
     );
   }

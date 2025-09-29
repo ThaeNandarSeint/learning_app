@@ -37,40 +37,42 @@ class ChatScreen extends StatelessWidget {
           style: const TextStyle(color: Colors.white),
         ),
       ),
-      body: Column(
-        children: [
-          Expanded(
-            child: StreamBuilder<List<ChatMessageModel>>(
-              stream: DummyDataService.getChatMessages(courseId),
-              builder: (context, snapshot) {
-                if (!snapshot.hasData) {
-                  return const Center(child: CircularProgressIndicator());
+      body: SafeArea(
+        child: Column(
+          children: [
+            Expanded(
+              child: StreamBuilder<List<ChatMessageModel>>(
+                stream: DummyDataService.getChatMessages(courseId),
+                builder: (context, snapshot) {
+                  if (!snapshot.hasData) {
+                    return const Center(child: CircularProgressIndicator());
+                  }
+                  final messages = snapshot.data!;
+                  return ListView.builder(
+                    reverse: true,
+                    padding: const EdgeInsets.all(16),
+                    itemCount: messages.length,
+                    itemBuilder: (context, index) {
+                      final message = messages[index];
+                      return MessageBubble(
+                        message: message,
+                        isMe: message.senderId == 'current_user_id',
+                      );
+                    },
+                  );
+                },
+              ),
+            ),
+            MessageInput(
+              controller: _messageController,
+              onSendPressed: () {
+                if (_messageController.text.isNotEmpty) {
+                  _messageController.clear();
                 }
-                final messages = snapshot.data!;
-                return ListView.builder(
-                  reverse: true,
-                  padding: const EdgeInsets.all(16),
-                  itemCount: messages.length,
-                  itemBuilder: (context, index) {
-                    final message = messages[index];
-                    return MessageBubble(
-                      message: message,
-                      isMe: message.senderId == 'current_user_id',
-                    );
-                  },
-                );
               },
             ),
-          ),
-          MessageInput(
-            controller: _messageController,
-            onSendPressed: () {
-              if (_messageController.text.isNotEmpty) {
-                _messageController.clear();
-              }
-            },
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
