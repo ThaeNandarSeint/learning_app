@@ -20,6 +20,7 @@ import 'package:learning_app/features/quiz/models/quiz_model.dart';
 import 'package:learning_app/features/quiz/views/screens/quiz_attempt_screen.dart';
 import 'package:learning_app/features/quiz/views/screens/quiz_list_screen.dart';
 import 'package:learning_app/features/quiz/views/screens/quiz_result_screen.dart';
+import 'package:learning_app/features/setting/views/screens/help_and_support_screen.dart';
 import 'package:learning_app/features/setting/views/screens/privacy_policy_screen.dart';
 import 'package:learning_app/features/setting/views/screens/settings_screen.dart';
 import 'package:learning_app/features/setting/views/screens/terms_conditions_screen.dart';
@@ -98,6 +99,10 @@ class AppPages {
     GetPage(
       name: AppRoutes.termsConditions,
       page: () => const TermsConditionsScreen(),
+    ),
+    GetPage(
+      name: AppRoutes.helpSupport,
+      page: () => const HelpAndSupportScreen(),
     ),
     GetPage(name: AppRoutes.analytics, page: () => AnalyticsDashboardScreen()),
     GetPage(name: AppRoutes.teacherHome, page: () => const TeacherHomeScreen()),

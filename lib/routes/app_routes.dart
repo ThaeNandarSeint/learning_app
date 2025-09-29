@@ -17,6 +17,7 @@ import 'package:learning_app/features/notification/views/screens/notification_sc
 import 'package:learning_app/features/payment/views/screens/payment_screen.dart';
 import 'package:learning_app/features/quiz/views/screens/quiz_attempt_screen.dart';
 import 'package:learning_app/features/quiz/views/screens/quiz_list_screen.dart';
+import 'package:learning_app/features/setting/views/screens/help_and_support_screen.dart';
 import 'package:learning_app/features/setting/views/screens/privacy_policy_screen.dart';
 import 'package:learning_app/features/setting/views/screens/settings_screen.dart';
 import 'package:learning_app/features/setting/views/screens/terms_conditions_screen.dart';
@@ -64,6 +65,7 @@ class AppRoutes {
   static const String settings = '/settings';
   static const String privacyPolicy = '/privacy-policy';
   static const String termsConditions = '/terms-conditions';
+  static const String helpSupport = '/help-support';
 
   // analytics routes
   static const String analytics = '/analytics';
@@ -172,6 +174,9 @@ class AppRoutes {
 
       case termsConditions:
         return MaterialPageRoute(builder: (_) => const TermsConditionsScreen());
+
+      case helpSupport:
+        return MaterialPageRoute(builder: (_) => const HelpAndSupportScreen());
 
       case analytics:
         return MaterialPageRoute(builder: (_) => AnalyticsDashboardScreen());
