@@ -1,6 +1,6 @@
 class AnalyticDataModel {
   final double completionRate;
-  final int totalTimeSpend;
+  final int totalTimeSpent;
   final double averageQuizScore;
   final Map<String, double> skillProgress;
   final List<String> recommendations;
@@ -11,7 +11,7 @@ class AnalyticDataModel {
 
   AnalyticDataModel({
     required this.completionRate,
-    required this.totalTimeSpend,
+    required this.totalTimeSpent,
     required this.averageQuizScore,
     required this.skillProgress,
     required this.recommendations,
@@ -24,7 +24,7 @@ class AnalyticDataModel {
   factory AnalyticDataModel.fromJson(Map<String, dynamic> json) {
     return AnalyticDataModel(
       completionRate: json['completionRate'] ?? 0.0,
-      totalTimeSpend: json['totalTimeSpend'] ?? 0,
+      totalTimeSpent: json['totalTimeSpent'] ?? 0,
       averageQuizScore: json['averageQuizScore'] ?? 0.0,
       skillProgress: Map<String, double>.from(json['skillProgress'] ?? {}),
       recommendations: List<String>.from(json['recommendations'] ?? []),

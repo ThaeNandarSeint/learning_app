@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:learning_app/features/analytic/views/screens/analytics_dashboard_screen.dart';
 import 'package:learning_app/features/auth/views/forgot_password_screen.dart';
 import 'package:learning_app/features/auth/views/login_screen.dart';
 import 'package:learning_app/features/auth/views/register_screen.dart';
@@ -53,6 +54,9 @@ class AppRoutes {
 
   // notification routes
   static const String notifications = '/notifications';
+
+  // analytics routes
+  static const String analytics = '/analytics';
 
   // teacher routes
   static const String teacherHome = '/teacher/home';
@@ -145,6 +149,9 @@ class AppRoutes {
 
       case notifications:
         return MaterialPageRoute(builder: (_) => const NotificationScreen());
+
+      case analytics:
+        return MaterialPageRoute(builder: (_) => AnalyticsDashboardScreen());
 
       case teacherHome:
         return MaterialPageRoute(builder: (_) => const TeacherHomeScreen());

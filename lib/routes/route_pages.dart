@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:learning_app/features/analytic/views/screens/analytics_dashboard_screen.dart';
 import 'package:learning_app/features/auth/views/forgot_password_screen.dart';
 import 'package:learning_app/features/auth/views/login_screen.dart';
 import 'package:learning_app/features/auth/views/register_screen.dart';
@@ -84,6 +85,7 @@ class AppPages {
       name: AppRoutes.notifications,
       page: () => const NotificationScreen(),
     ),
+    GetPage(name: AppRoutes.analytics, page: () => AnalyticsDashboardScreen()),
     GetPage(name: AppRoutes.teacherHome, page: () => const TeacherHomeScreen()),
     GetPage(name: AppRoutes.myCourses, page: () => const MyCourseListScreen()),
     GetPage(name: AppRoutes.teacherChats, page: () => const ChatListScreen()),
