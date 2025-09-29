@@ -17,6 +17,7 @@ import 'package:learning_app/features/notification/views/screens/notification_sc
 import 'package:learning_app/features/payment/views/screens/payment_screen.dart';
 import 'package:learning_app/features/quiz/views/screens/quiz_attempt_screen.dart';
 import 'package:learning_app/features/quiz/views/screens/quiz_list_screen.dart';
+import 'package:learning_app/features/setting/views/screens/settings_screen.dart';
 import 'package:learning_app/features/student_progress/views/screens/student_progress_screen.dart';
 import 'package:learning_app/features/teacher_analytics/views/screens/teacher_analytics_screen.dart';
 import 'package:learning_app/features/teacher_home/views/screens/teacher_home_screen.dart';
@@ -57,6 +58,9 @@ class AppRoutes {
   // notification routes
   static const String notifications = '/notifications';
 
+  // setting routes
+  static const String settings = '/settings';
+
   // analytics routes
   static const String analytics = '/analytics';
 
@@ -68,8 +72,8 @@ class AppRoutes {
   static const String teacherAnalytics = '/teacher/analytics';
   static const String studentProgress = '/teacher/student_progress';
 
-  static Route<dynamic> onGenerateRoute(RouteSettings settings) {
-    switch (settings.name) {
+  static Route<dynamic> onGenerateRoute(RouteSettings routeSettings) {
+    switch (routeSettings.name) {
       case splash:
         return MaterialPageRoute(builder: (_) => const SplashScreen());
 
@@ -88,8 +92,9 @@ class AppRoutes {
       case main:
         return MaterialPageRoute(
           builder: (_) => MainScreen(
-            initialIndex: settings.arguments is Map
-                ? (settings.arguments as Map<String, dynamic>)['initialIndex']
+            initialIndex: routeSettings.arguments is Map
+                ? (routeSettings.arguments
+                          as Map<String, dynamic>)['initialIndex']
                       as int?
                 : null,
           ),
@@ -101,7 +106,7 @@ class AppRoutes {
       case courseList:
         return MaterialPageRoute(
           builder: (_) {
-            final args = settings.arguments as Map<String, dynamic>?;
+            final args = routeSettings.arguments as Map<String, dynamic>?;
             return CourseListScreen(
               categoryId: args?['category'] as String,
               categoryName: args?['categoryName'] as String,
@@ -111,10 +116,10 @@ class AppRoutes {
 
       case courseDetail:
         String courseId;
-        if (settings.arguments != null) {
-          courseId = settings.arguments as String;
+        if (routeSettings.arguments != null) {
+          courseId = routeSettings.arguments as String;
         } else {
-          final uri = Uri.parse(settings.name ?? '');
+          final uri = Uri.parse(routeSettings.name ?? '');
           courseId = uri.pathSegments.last;
         }
         return MaterialPageRoute(
@@ -122,7 +127,7 @@ class AppRoutes {
         );
 
       case lessonDetail:
-        final lessonId = settings.arguments as String?;
+        final lessonId = routeSettings.arguments as String?;
         return MaterialPageRoute(
           builder: (_) => LessonDetailScreen(lessonId: lessonId ?? ''),
         );
@@ -131,7 +136,7 @@ class AppRoutes {
         return MaterialPageRoute(builder: (_) => const QuizListScreen());
 
       case quizAttempt:
-        final quizId = settings.arguments as String?;
+        final quizId = routeSettings.arguments as String?;
         return MaterialPageRoute(
           builder: (_) => QuizAttemptScreen(quizId: quizId ?? ''),
         );
@@ -143,7 +148,7 @@ class AppRoutes {
         return MaterialPageRoute(builder: (_) => const EditProfileScreen());
 
       case payment:
-        final args = settings.arguments as Map<String, dynamic>;
+        final args = routeSettings.arguments as Map<String, dynamic>;
         return MaterialPageRoute(
           builder: (_) => PaymentScreen(
             courseId: args['courseId'] ?? '',
@@ -154,6 +159,9 @@ class AppRoutes {
 
       case notifications:
         return MaterialPageRoute(builder: (_) => const NotificationScreen());
+
+      case settings:
+        return MaterialPageRoute(builder: (_) => const SettingsScreen());
 
       case analytics:
         return MaterialPageRoute(builder: (_) => AnalyticsDashboardScreen());
