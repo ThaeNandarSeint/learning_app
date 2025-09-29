@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:learning_app/core/theme/app_colors.dart';
-import 'package:learning_app/features/chat/models/chat_message_model.dart';
 import 'package:learning_app/features/chat/views/widgets/chat_tile.dart';
 import 'package:learning_app/services/dummy_data_service.dart';
 
@@ -35,6 +34,7 @@ class ChatListScreen extends StatelessWidget {
           );
           return ListView.builder(
             padding: const EdgeInsets.all(16),
+            itemCount: chatsByCourse.length,
             itemBuilder: (context, index) {
               final courseId = chatsByCourse.keys.elementAt(index);
               final courseChats = chatsByCourse[courseId]!;
