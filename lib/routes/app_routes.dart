@@ -20,6 +20,7 @@ import 'package:learning_app/features/quiz/views/screens/quiz_list_screen.dart';
 import 'package:learning_app/features/student_progress/views/screens/student_progress_screen.dart';
 import 'package:learning_app/features/teacher_analytics/views/screens/teacher_analytics_screen.dart';
 import 'package:learning_app/features/teacher_home/views/screens/teacher_home_screen.dart';
+import 'package:learning_app/features/user/views/screens/edit_profile_screen.dart';
 import 'package:learning_app/features/user/views/screens/profile_screen.dart';
 
 class AppRoutes {
@@ -48,6 +49,7 @@ class AppRoutes {
 
   // profile routes
   static const String profile = '/profile';
+  static const String editProfile = '/profile/edit';
 
   // payment routes
   static const String payment = '/payment';
@@ -136,6 +138,9 @@ class AppRoutes {
 
       case profile:
         return MaterialPageRoute(builder: (_) => const ProfileScreen());
+
+      case editProfile:
+        return MaterialPageRoute(builder: (_) => const EditProfileScreen());
 
       case payment:
         final args = settings.arguments as Map<String, dynamic>;

@@ -23,6 +23,7 @@ import 'package:learning_app/features/quiz/views/screens/quiz_result_screen.dart
 import 'package:learning_app/features/student_progress/views/screens/student_progress_screen.dart';
 import 'package:learning_app/features/teacher_analytics/views/screens/teacher_analytics_screen.dart';
 import 'package:learning_app/features/teacher_home/views/screens/teacher_home_screen.dart';
+import 'package:learning_app/features/user/views/screens/edit_profile_screen.dart';
 import 'package:learning_app/features/user/views/screens/profile_screen.dart';
 import 'package:learning_app/routes/app_routes.dart';
 
@@ -73,6 +74,7 @@ class AppPages {
       page: () => QuizAttemptScreen(quizId: Get.parameters['id'] ?? ''),
     ),
     GetPage(name: AppRoutes.profile, page: () => const ProfileScreen()),
+    GetPage(name: AppRoutes.editProfile, page: () => const EditProfileScreen()),
     GetPage(
       name: AppRoutes.payment,
       page: () => PaymentScreen(
