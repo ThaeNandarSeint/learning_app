@@ -17,7 +17,9 @@ import 'package:learning_app/features/notification/views/screens/notification_sc
 import 'package:learning_app/features/payment/views/screens/payment_screen.dart';
 import 'package:learning_app/features/quiz/views/screens/quiz_attempt_screen.dart';
 import 'package:learning_app/features/quiz/views/screens/quiz_list_screen.dart';
+import 'package:learning_app/features/setting/views/screens/privacy_policy_screen.dart';
 import 'package:learning_app/features/setting/views/screens/settings_screen.dart';
+import 'package:learning_app/features/setting/views/screens/terms_conditions_screen.dart';
 import 'package:learning_app/features/student_progress/views/screens/student_progress_screen.dart';
 import 'package:learning_app/features/teacher_analytics/views/screens/teacher_analytics_screen.dart';
 import 'package:learning_app/features/teacher_home/views/screens/teacher_home_screen.dart';
@@ -60,6 +62,8 @@ class AppRoutes {
 
   // setting routes
   static const String settings = '/settings';
+  static const String privacyPolicy = '/privacy-policy';
+  static const String termsConditions = '/terms-conditions';
 
   // analytics routes
   static const String analytics = '/analytics';
@@ -162,6 +166,12 @@ class AppRoutes {
 
       case settings:
         return MaterialPageRoute(builder: (_) => const SettingsScreen());
+
+      case privacyPolicy:
+        return MaterialPageRoute(builder: (_) => const PrivacyPolicyScreen());
+
+      case termsConditions:
+        return MaterialPageRoute(builder: (_) => const TermsConditionsScreen());
 
       case analytics:
         return MaterialPageRoute(builder: (_) => AnalyticsDashboardScreen());

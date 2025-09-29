@@ -6,6 +6,7 @@ import 'package:learning_app/bloc/font/font_event.dart';
 import 'package:learning_app/core/theme/app_colors.dart';
 import 'package:learning_app/features/setting/views/widgets/setting_section.dart';
 import 'package:learning_app/features/setting/views/widgets/setting_tile.dart';
+import 'package:learning_app/routes/app_routes.dart';
 import 'package:learning_app/services/font_service.dart';
 
 class SettingsScreen extends StatelessWidget {
@@ -83,12 +84,12 @@ class SettingsScreen extends StatelessWidget {
                   SettingTile(
                     title: 'Privacy Policy',
                     icon: Icons.privacy_tip_outlined,
-                    onTap: () {},
+                    onTap: () => Get.toNamed(AppRoutes.privacyPolicy),
                   ),
                   SettingTile(
                     title: 'Terms of Service',
                     icon: Icons.description_outlined,
-                    onTap: () {},
+                    onTap: () => Get.toNamed(AppRoutes.termsConditions),
                   ),
                 ],
               ),
